@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-import React from 'react'
-import { render } from 'ink'
-import { Command } from 'commander'
-import App from './app.js'
+import React from 'react';
+import { render } from 'ink';
+import { Command } from 'commander';
+import App from './app.js';
 
-const program = new Command()
+const program = new Command();
 
 program
   .name('gitbrew')
@@ -19,14 +19,14 @@ program
         collect(process.cwd(), opts.since, opts.author)
           .then((report) => console.log(JSON.stringify(report, null, 2)))
           .catch((err) => {
-            console.error(err.message)
-            process.exit(1)
+            console.error(err.message);
+            process.exit(1);
           })
-      )
-      return
+      );
+      return;
     }
 
-    render(<App since={opts.since} author={opts.author} />)
-  })
+    render(<App since={opts.since} author={opts.author} />);
+  });
 
-program.parse(process.argv)
+program.parse(process.argv);

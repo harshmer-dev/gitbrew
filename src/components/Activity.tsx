@@ -1,28 +1,28 @@
-import React from 'react'
-import { Box, Text } from 'ink'
-import sparkly from 'sparkly'
+import React from 'react';
+import { Box, Text } from 'ink';
+import sparkly from 'sparkly';
 
 interface ActivityProps {
-  activityByDay: Record<string, number>
-  since: string
+  activityByDay: Record<string, number>;
+  since: string;
 }
 
 const Activity: React.FC<ActivityProps> = ({ activityByDay, since }) => {
   // sort days chronologically and extract counts
   const sorted = Object.entries(activityByDay).sort(([a], [b]) =>
     a.localeCompare(b)
-  )
-  const counts = sorted.map(([, count]) => count)
+  );
+  const counts = sorted.map(([, count]) => count);
 
   if (counts.length === 0) {
     return (
       <Box marginBottom={1}>
         <Text dimColor>No activity in this time window.</Text>
       </Box>
-    )
+    );
   }
 
-  const spark = sparkly(counts)
+  const spark = sparkly(counts);
 
   return (
     <Box flexDirection="column" marginBottom={1}>
@@ -49,7 +49,7 @@ const Activity: React.FC<ActivityProps> = ({ activityByDay, since }) => {
         </Text>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default Activity
+export default Activity;

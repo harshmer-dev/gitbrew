@@ -1,22 +1,22 @@
-import React from 'react'
-import { Box, Text } from 'ink'
-import Gradient from 'ink-gradient'
-import BigText from 'ink-big-text'
+import React from 'react';
+import { Box, Text } from 'ink';
+import Gradient from 'ink-gradient';
+import BigText from 'ink-big-text';
 
 interface HeaderProps {
-  repoName?: string
-  branch?: string
+  repoName?: string;
+  branch?: string;
 }
 
 const Header: React.FC<HeaderProps> = ({ repoName, branch }) => {
   return (
     <Box flexDirection="column">
-      <Gradient colors={['#f7971e', '#ffd200', '#00c6ff', '#0072ff']}>
+      <Gradient colors={['#0072ff', '#0072ff']}>
         <BigText text="gitbrew" font="block" />
       </Gradient>
 
       <Box gap={1}>
-        <Text color="cyanBright" italic>
+        <Text color="cyanBright">
           🍺 Repo insights, brewed fresh in your terminal
         </Text>
       </Box>
@@ -44,7 +44,7 @@ const Header: React.FC<HeaderProps> = ({ repoName, branch }) => {
         </Text>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

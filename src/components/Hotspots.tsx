@@ -1,9 +1,9 @@
-import React from 'react'
-import { Box, Text } from 'ink'
-import type { HotspotFile } from '../git/types.js'
+import React from 'react';
+import { Box, Text } from 'ink';
+import type { HotspotFile } from '../git/types.js';
 
 interface HotspotsProps {
-  hotspots: HotspotFile[]
+  hotspots: HotspotFile[];
 }
 
 const Hotspots: React.FC<HotspotsProps> = ({ hotspots }) => {
@@ -12,15 +12,15 @@ const Hotspots: React.FC<HotspotsProps> = ({ hotspots }) => {
       <Box marginBottom={1}>
         <Text dimColor>No hotspot files found in this time window.</Text>
       </Box>
-    )
+    );
   }
 
-  const max = hotspots[0].changes
+  const max = hotspots[0].changes;
 
   const getBar = (changes: number) => {
-    const filled = Math.round((changes / max) * 10)
-    return '█'.repeat(filled) + '░'.repeat(10 - filled)
-  }
+    const filled = Math.round((changes / max) * 10);
+    return '█'.repeat(filled) + '░'.repeat(10 - filled);
+  };
 
   return (
     <Box flexDirection="column" marginBottom={1}>
@@ -46,7 +46,7 @@ const Hotspots: React.FC<HotspotsProps> = ({ hotspots }) => {
         </Box>
       ))}
     </Box>
-  )
-}
+  );
+};
 
-export default Hotspots
+export default Hotspots;

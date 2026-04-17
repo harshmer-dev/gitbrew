@@ -1,8 +1,8 @@
-import React from 'react'
-import { Box, Text } from 'ink'
+import React from 'react';
+import { Box, Text } from 'ink';
 
 interface ErrorDisplayProps {
-  message: string
+  message: string;
 }
 
 const ErrorDisplay: React.FC<ErrorDisplayProps> = ({ message }) => {
@@ -28,7 +28,7 @@ const ErrorDisplay: React.FC<ErrorDisplayProps> = ({ message }) => {
         </Text>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default ErrorDisplay
+export default ErrorDisplay;

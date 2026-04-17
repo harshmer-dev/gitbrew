@@ -1,9 +1,9 @@
-import React from 'react'
-import { Box, Text } from 'ink'
-import type { GitBrewReport } from '../git/types.js'
+import React from 'react';
+import { Box, Text } from 'ink';
+import type { GitBrewReport } from '../git/types.js';
 
 interface OverviewProps {
-  report: GitBrewReport
+  report: GitBrewReport;
 }
 
 const Stat: React.FC<{ label: string; value: string; color?: string }> = ({
@@ -17,7 +17,7 @@ const Stat: React.FC<{ label: string; value: string; color?: string }> = ({
       {value}
     </Text>
   </Box>
-)
+);
 
 const Overview: React.FC<OverviewProps> = ({ report }) => {
   return (
@@ -58,7 +58,7 @@ const Overview: React.FC<OverviewProps> = ({ report }) => {
         <Stat label="Last commit" value={report.lastCommitAgo} color="yellow" />
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default Overview
+export default Overview;

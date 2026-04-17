@@ -1,9 +1,9 @@
-import React from 'react'
-import { Box, Text } from 'ink'
-import type { Contributor } from '../git/types.js'
+import React from 'react';
+import { Box, Text } from 'ink';
+import type { Contributor } from '../git/types.js';
 
 interface ContributorsProps {
-  contributors: Contributor[]
+  contributors: Contributor[];
 }
 
 const Contributors: React.FC<ContributorsProps> = ({ contributors }) => {
@@ -12,7 +12,7 @@ const Contributors: React.FC<ContributorsProps> = ({ contributors }) => {
       <Box marginBottom={1}>
         <Text dimColor>No contributors found in this time window.</Text>
       </Box>
-    )
+    );
   }
 
   return (
@@ -47,7 +47,7 @@ const Contributors: React.FC<ContributorsProps> = ({ contributors }) => {
         </Box>
       ))}
     </Box>
-  )
-}
+  );
+};
 
-export default Contributors
+export default Contributors;

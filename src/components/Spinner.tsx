@@ -1,9 +1,9 @@
-import React from 'react'
-import { Box, Text } from 'ink'
-import SpinnerLib from 'ink-spinner'
+import React from 'react';
+import { Box, Text } from 'ink';
+import SpinnerLib from 'ink-spinner';
 
 interface SpinnerProps {
-  label: string
+  label: string;
 }
 
 const Spinner: React.FC<SpinnerProps> = ({ label }) => {
@@ -16,7 +16,7 @@ const Spinner: React.FC<SpinnerProps> = ({ label }) => {
         {label}
       </Text>
     </Box>
-  )
-}
+  );
+};
 
-export default Spinner
+export default Spinner;
