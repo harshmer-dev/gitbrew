@@ -7,6 +7,8 @@ interface ChangesProps {
 }
 
 const Changes: React.FC<ChangesProps> = ({ currentChanges }) => {
+  if (currentChanges.length === 0) <></>;
+
   return (
     <Box flexDirection="column" marginBottom={1}>
       <Box marginBottom={1}>
@@ -20,7 +22,7 @@ const Changes: React.FC<ChangesProps> = ({ currentChanges }) => {
 
         return (
           <Box gap={2}>
-            <Text color={'white'}>{`${c.path}  (${mark})`}</Text>
+            <Text color={'white'}>{`${c.path}  (${c.working_dir})`}</Text>
           </Box>
         );
       })}
