@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Text } from 'ink';
 import type { FileStatusSummary } from '../git/types.js';
+import path from 'path';
 
 interface ChangesProps {
   currentChanges: FileStatusSummary[];
@@ -45,6 +46,7 @@ const Changes: React.FC<ChangesProps> = ({ currentChanges }) => {
       {currentChanges.map((c) => {
         const mark = getMark(c);
         const label = getLabel(c);
+        const fileName = path.basename(c.path);
 
         return (
           <Box key={c.path} gap={2}>
@@ -53,7 +55,10 @@ const Changes: React.FC<ChangesProps> = ({ currentChanges }) => {
             </Text>
             <Box width={35}>
               <Text color="white">
+                {fileName}
+                {'  ('}
                 {c.path.length > 33 ? '...' + c.path.slice(-30) : c.path}
+                {')'}
               </Text>
             </Box>
             <Text dimColor>{label}</Text>
