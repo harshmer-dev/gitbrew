@@ -7,7 +7,9 @@ interface ChangesProps {
 }
 
 const Changes: React.FC<ChangesProps> = ({ currentChanges }) => {
-  if (currentChanges.length === 0) <></>;
+  if (currentChanges.length === 0) {
+    return <></>;
+  }
 
   return (
     <Box flexDirection="column" marginBottom={1}>
@@ -18,11 +20,11 @@ const Changes: React.FC<ChangesProps> = ({ currentChanges }) => {
       </Box>
 
       {currentChanges.map((c) => {
-        const mark = c.working_dir === '?' ? 'U' : c.working_dir;
+        const mark = c.working_dir === '?' ? c.index : c.working_dir;
 
         return (
           <Box gap={2}>
-            <Text color={'white'}>{`${c.path}  (${c.working_dir})`}</Text>
+            <Text color={'white'}>{`${c.path}  (${mark})`}</Text>
           </Box>
         );
       })}
