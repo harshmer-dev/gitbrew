@@ -11,6 +11,12 @@ export interface HotspotFile {
   changes: number;
 }
 
+export interface FileStatusSummary {
+  path: string;
+  index: string;
+  working_dir: string;
+}
+
 export interface GitBrewReport {
   repoName: string;
   branch: string;
@@ -22,5 +28,6 @@ export interface GitBrewReport {
   lastCommitAgo: string;
   contributors: Contributor[];
   hotspots: HotspotFile[];
+  currentChanges: FileStatusSummary[];
   activityByDay: Record<string, number>;
 }

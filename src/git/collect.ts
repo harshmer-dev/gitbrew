@@ -66,6 +66,10 @@ export const collect = async (
     })
   );
 
+  // ── changes ────────────────────────────────────────────────
+  const changes = await git.status();
+  const currentChanges = changes.files;
+
   // ── hotspot files ───────────────────────────────────────────────
   const nameOnlyRaw = await git.raw([
     'log',
@@ -98,6 +102,7 @@ export const collect = async (
     branch,
     since,
     totalCommits,
+    currentChanges,
     totalFilesChanged,
     totalLinesAdded,
     totalLinesRemoved,

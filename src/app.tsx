@@ -9,6 +9,7 @@ import Contributors from './components/Contributors.js';
 import Hotspots from './components/Hotspots.js';
 import ErrorDisplay from './components/ErrorDisplay.js';
 import Spinner from './components/Spinner.js';
+import Changes from './components/Changes.js';
 
 interface AppProps {
   since: string;
@@ -50,6 +51,7 @@ const App: React.FC<AppProps> = ({ since, author }) => {
         <Box flexDirection="column" gap={1}>
           <Overview report={report} />
           <Activity activityByDay={report.activityByDay} since={since} />
+          <Changes currentChanges={report.currentChanges} />
           <Contributors contributors={report.contributors} />
           <Hotspots hotspots={report.hotspots} />
         </Box>
