@@ -115,6 +115,7 @@ gitbrew --json > report.json
 - [x] Contributor breakdown with line stats
 - [x] Hotspot files
 - [x] Activity sparkline
+- [x] Current working tree changes
 - [x] `--since` time window flag
 - [x] `--author` filter
 - [x] `--json` output
