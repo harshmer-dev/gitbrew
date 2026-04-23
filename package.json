@@ -1,9 +1,15 @@
 {
   "name": "gitbrew",
   "version": "1.0.0",
-  "description": "A cli tool to manage and get info from git and github to manage any project",
+  "description": "Repo activity and insights, brewed fresh in your terminal",
   "bin": {
     "gitbrew": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
   },
   "scripts": {
     "dev": "tsx src/cli.tsx",
@@ -11,9 +17,16 @@
     "format": "prettier --write src/**/*.{ts,tsx}"
   },
   "keywords": [
-    "git tool",
-    "cli tool"
+    "git",
+    "cli",
+    "analytics",
+    "ink",
+    "terminal"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harshmer-dev/gitbrew.git"
+  },
   "author": "Harsh Mer",
   "type": "module",
   "dependencies": {

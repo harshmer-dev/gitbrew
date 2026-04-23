@@ -10,7 +10,6 @@ export const collect = async (
 ): Promise<GitBrewReport> => {
   const git = simpleGit(cwd);
 
-  // fail fast if not a git repo
   const isRepo = await git.checkIsRepo();
   if (!isRepo) throw new Error('Not a git repository.');
 
@@ -19,9 +18,7 @@ export const collect = async (
   const repoName = path.basename(cwd);
 
   // ── commit log ──────────────────────────────────────────────────
-  const logArgs: Record<string, string> = {
-    '--since': sinceArg,
-  };
+  const logArgs: Record<string, string> = { '--since': sinceArg };
   if (authorFilter) logArgs['--author'] = authorFilter;
 
   const log = await git.log(logArgs);
@@ -35,7 +32,7 @@ export const collect = async (
     activityByDay[day] = (activityByDay[day] ?? 0) + 1;
   }
 
-  // ── contributors ────────────────────────────────────────────────
+  // ── contributors (with dedup by name) ───────────────────────────
   const shortlogRaw = await git.raw([
     'shortlog',
     '-sne',
@@ -44,12 +41,30 @@ export const collect = async (
   ]);
   const rawContributors = parseShortlog(shortlogRaw);
 
+  const mergedMap = new Map<string, (typeof rawContributors)[0]>();
+  for (const c of rawContributors) {
+    const key = c.name.toLowerCase().trim();
+    const existing = mergedMap.get(key);
+    if (existing) {
+      mergedMap.set(key, {
+        ...existing,
+        commits: existing.commits + c.commits,
+      });
+    } else {
+      mergedMap.set(key, c);
+    }
+  }
+  const dedupedContributors = Array.from(mergedMap.values()).sort(
+    (a, b) => b.commits - a.commits
+  );
+
   const contributors: Contributor[] = await Promise.all(
-    rawContributors.map(async (c) => {
+    dedupedContributors.map(async (c) => {
+      // match by name so all emails of the same person get counted
       const diffRaw = await git.raw([
         'log',
         `--since=${sinceArg}`,
-        `--author=${c.email}`,
+        `--author=${c.name}`,
         '--pretty=tformat:',
         '--numstat',
       ]);
@@ -66,7 +81,7 @@ export const collect = async (
     })
   );
 
-  // ── changes ────────────────────────────────────────────────
+  // ── current changes ─────────────────────────────────────────────
   const changes = await git.status();
   const currentChanges = changes.files;
 

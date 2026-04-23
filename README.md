@@ -3,8 +3,6 @@
 > Repo activity and insights, brewed fresh in your terminal.
 
 ![version](https://img.shields.io/npm/v/gitbrew)
-![license](https://img.shields.io/npm/l/gitbrew)
-![downloads](https://img.shields.io/npm/dw/gitbrew)
 
 ---
 
