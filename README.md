@@ -14,6 +14,10 @@ No config. No setup. Just run it inside any git repo.
 
 ---
 
+## What it shows
+
+![Demo](./assets/demo.gif)
+
 ## Usage
 
 ```bash
@@ -63,37 +67,6 @@ gitbrew --author harsh
 
 # pipe to a file or other tools
 gitbrew --json > report.json
-```
-
----
-
-## What it shows
-
-```
-  ◆ GITBREW                         my-project · main
-  ───────────────────────────────────────────────────
-
-  OVERVIEW  (last 30 days)
-  Commits        47      Lines added    +1,204
-  Contributors    3      Lines removed    -389
-  Files changed  12      Last commit    2h ago
-
-  ACTIVITY (last 30d) (All contributors)
-  Apr  ▁▁▂▃▄▄▇█▇▅▃▂▁▂▄▆▇█▇▄▃▂▁▂▃▄▄▃▂▁
-
-  CURRENT CHANGES (1 files)
-  M  Home.tsx   (src/Home.tsx)      unstaged
-
-  CONTRIBUTORS
-  ❯ Harsh Mer          28 commits   +892  -201
-    Arjun Shah          12 commits   +287  -150
-    Priya Mehta          7 commits    +25   -38
-
-  HOTSPOT FILES
-  ❯ src/app.tsx              ██████████  14 changes
-    src/components/UI.tsx    ███████      9 changes
-    package.json             ████         6 changes
-    src/utils/helpers.ts     ███          4 changes
 ```
 
 ---
