@@ -78,8 +78,11 @@ gitbrew --json > report.json
   Contributors    3      Lines removed    -389
   Files changed  12      Last commit    2h ago
 
-  ACTIVITY
+  ACTIVITY (last 30d) (All contributors)
   Apr  ▁▁▂▃▄▄▇█▇▅▃▂▁▂▄▆▇█▇▄▃▂▁▂▃▄▄▃▂▁
+
+  CURRENT CHANGES (1 files)
+  M  Home.tsx   (src/Home.tsx)      unstaged
 
   CONTRIBUTORS
   ❯ Harsh Mer          28 commits   +892  -201

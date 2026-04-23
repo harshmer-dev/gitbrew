@@ -5,9 +5,14 @@ import sparkly from 'sparkly';
 interface ActivityProps {
   activityByDay: Record<string, number>;
   since: string;
+  author?: string;
 }
 
-const Activity: React.FC<ActivityProps> = ({ activityByDay, since }) => {
+const Activity: React.FC<ActivityProps> = ({
+  activityByDay,
+  since,
+  author,
+}) => {
   // sort days chronologically and extract counts
   const sorted = Object.entries(activityByDay).sort(([a], [b]) =>
     a.localeCompare(b)
@@ -30,7 +35,8 @@ const Activity: React.FC<ActivityProps> = ({ activityByDay, since }) => {
         <Text bold color="yellow">
           ACTIVITY{' '}
         </Text>
-        <Text dimColor>(last {since})</Text>
+        <Text dimColor>(last {since}) </Text>
+        <Text dimColor>({author ? author : 'All contributors'})</Text>
       </Box>
 
       <Box gap={2}>
@@ -40,10 +46,8 @@ const Activity: React.FC<ActivityProps> = ({ activityByDay, since }) => {
       </Box>
 
       <Box marginTop={1} gap={2}>
-        <Text dimColor italic>
-          peak {Math.max(...counts)} commits/day
-        </Text>
-        <Text dimColor italic>
+        <Text dimColor>eak {Math.max(...counts)} commits/day</Text>
+        <Text dimColor>
           avg {Math.round(counts.reduce((a, b) => a + b, 0) / counts.length)}{' '}
           commits/day
         </Text>

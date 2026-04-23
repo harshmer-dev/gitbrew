@@ -50,7 +50,11 @@ const App: React.FC<AppProps> = ({ since, author }) => {
       {phase === 'REPORT' && report && (
         <Box flexDirection="column" gap={1}>
           <Overview report={report} />
-          <Activity activityByDay={report.activityByDay} since={since} />
+          <Activity
+            activityByDay={report.activityByDay}
+            since={since}
+            author={author}
+          />
           <Changes currentChanges={report.currentChanges} />
           <Contributors contributors={report.contributors} />
           <Hotspots hotspots={report.hotspots} />
