@@ -13,7 +13,7 @@
   },
   "scripts": {
     "dev": "tsx src/cli.tsx",
-    "build": "tsc",
+    "build": "tsc && chmod +x dist/cli.js",
     "format": "prettier --write src/**/*.{ts,tsx}"
   },
   "keywords": [
