@@ -112,3 +112,9 @@ Contributions are welcome!
 ## Authors
 
 - **Harsh Mer** — [@harshmer-dev](https://github.com/harshmer-dev)
+
+## License
+
+MIT © [Harsh Mer](https://github.com/harshmer-dev)
+
+See [LICENSE](./LICENSE) for details.
